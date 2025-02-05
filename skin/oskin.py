@@ -1,10 +1,9 @@
 from tkinter import ttk
 import tkinter as tk
-from wtk.ktreeview import KTreeview
-from wtk.kombobox import Kombobox
-from wtk.ktreeview import KTreeview
-from wtk.mitexto import MiTexto
-from wtk.ktexto import KText
+from skin.wtk.ktreeview import KTreeview
+from skin.wtk.kombobox import Kombobox
+from skin.wtk.ktreeview import KTreeview
+from skin.wtk.ktexto import KText
 
 
 class OSkin(tk.Frame):
