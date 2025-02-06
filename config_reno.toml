@@ -1,0 +1,8 @@
+[reno]
+"ruta nombres" = "T:/TAG/EJECUTABLES/RECURSOS/pro_plex/modelos"
+"ruta json" = "./nombres.json"
+"formato imgs" = ["jpg", "png", "gif"]
+"sep nombres" = ", "
+"motores" = ["MediaInfo", "FFmpeg", "Otros"]
+"motor elegido" = 0
+"plantilla" = "[$duracion$ $bitratev$ $modelos$]-$alto$p"

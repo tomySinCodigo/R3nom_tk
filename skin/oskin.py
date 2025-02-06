@@ -91,6 +91,14 @@ class OSkin(tk.Frame):
         self.pw.add(self.tree)
         self.pw.add(self.tex)
         self.rowconfigure(1, weight=1)
+
+    def msg(self, texto, **kw):
+        """texto, tag, fg, bg"""
+        self.tex.msg(texto=texto, **kw)
+
+    def msgNum(self, texto, i=0, **kw):
+        """texto, i[0-8], kw[tag, fg, bg]"""
+        self.tex.msgNum(texto, i, **kw)
         
         
 

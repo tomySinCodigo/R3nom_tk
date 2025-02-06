@@ -26,7 +26,8 @@ class KScroll(ttk.Scrollbar):
     def _configKScroll(self):
         color = Colores()
         self.ss.configure(
-            "s1.Vertical.TScrollbar",
+            # "s1.Vertical.TScrollbar",
+            "Vertical.TScrollbar",
             gripcount=0,
             background=color.scroll_fg,
             darkcolor=color.scroll_bg,
@@ -36,11 +37,12 @@ class KScroll(ttk.Scrollbar):
             relief='flat'
         )
         self.ss.map(
-            "s1.Vertical.TScrollbar",
+            # "s1.Vertical.TScrollbar",
+            "Vertical.TScrollbar",
             background=[("!active", color.scroll_bg), ("active", color.scroll_bg)],
             arrowcolor=[("active", color.scroll_bg), ("!active", color.scroll_fg)]
         )
-        self.config(style="s1.Vertical.TScrollbar")
+        self.config(style="Vertical.TScrollbar")
 
 
 class KText(tk.Frame):
@@ -139,14 +141,14 @@ if __name__ == '__main__':
 
     wg.error('algo no va bien, no se eusand encontro algo con el directorio mencionado para la ejeucion del progra,a')
     wg.msgNum('segunda lineas\n', i=0)
-    wg.msgNum('nombre carpeta UNO\n', i=1)
-    wg.msgNum('nombre carpeta UNO\n', i=2)
-    wg.msgNum('nombre carpeta UNO\n', i=3)
-    wg.msgNum('nombre carpeta UNO\n', i=4)
-    wg.msgNum('nombre carpeta UNO\n', i=5)
-    wg.msgNum('nombre carpeta UNO\n', i=6)
-    wg.msgNum('nombre carpeta UNO\n', i=7)
-    wg.msgNum('segunda lineas\n', i=8)
+    wg.msgNum('nombre carpeta UNO1\n', i=1)
+    wg.msgNum('nombre carpeta UNO2\n', i=2)
+    wg.msgNum('nombre carpeta UNO3\n', i=3)
+    wg.msgNum('nombre carpeta UNO4\n', i=4)
+    wg.msgNum('nombre carpeta UNO5\n', i=5)
+    wg.msgNum('nombre carpeta UNO6\n', i=6)
+    wg.msgNum('nombre carpeta UNO777\n', i=7)
+    wg.msgNum('segunda lineas888\n', i=8)
 
 
     texto = """What is Lorem Ipsum?

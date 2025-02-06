@@ -1,4 +1,4 @@
-from skin.ventana_reno import VentanaReno
+from ventana_reno import VentanaReno
 
 
 if __name__ == '__main__':
