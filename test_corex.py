@@ -9,3 +9,15 @@ if __name__ == '__main__':
     # print(cx.getArg())
     res = cx.useFFmpeg()
     print(res)
+
+    # res = cx.getMi()
+    # print(res)
+
+    # print(cx.useMediaInfo())
+
+    # a = '3789kbps'
+    # def uno(valor):
+    #     num = int(valor.replace("kbps", ""))
+    #     return f'{round(num/1e3, 2)}mb'
+    
+    # print(uno(a))
