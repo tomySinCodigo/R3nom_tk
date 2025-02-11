@@ -2,13 +2,14 @@ from tkinter import ttk
 import tkinter as tk
 from skin.wtk.ktreeview import KTreeview
 from skin.wtk.kombobox import Kombobox
-from skin.wtk.ktreeview import KTreeview
+# from skin.wtk.ktreeview import KTreeview
 from skin.wtk.ktexto import KText
 
 
 class OSkin(tk.Frame):
-    def __init__(self, parent, *args, **kw):
+    def __init__(self, parent, bg="blue", *args, **kw):
         super().__init__(master=parent, *args, **kw)
+        self.bg = bg
         self.parent = parent
         self._config_OSkin()
         
@@ -25,7 +26,8 @@ class OSkin(tk.Frame):
         self.fm_barrabot.grid(row=1, column=1, sticky="wens")
         self.fm_barrabot.columnconfigure(0, weight=1)
         
-        bg = '#303430'
+        # bg = '#303430'
+        bg = self.bg
         bga = 'black'
         fg = 'azure'
         fga = 'white'
@@ -33,11 +35,12 @@ class OSkin(tk.Frame):
         self.sbt = {
             'relief':'flat',
             #'background':bg,
-            'background':'#202020',
+            'background':'#303030',
             'foreground':fg,
             'activebackground':bga,
             'activeforeground':fga,
-            'font':('Consolas', 8, 'bold')
+            'font':('Consolas', 8, 'bold'),
+            "highlightbackground":"blue"
         }
         self.sen = {
             'relief':'flat',
@@ -72,25 +75,52 @@ class OSkin(tk.Frame):
         self.cmb_nombres.grid(row=0, column=2, sticky="wens")
         self.cmb_nombres.estilo(self.ss, fg='#FFC353', fgm='#FFC353')
         self.cmb_nombres.config(width=14)
+
         
         bgt = '#151500'
         self.pw = tk.PanedWindow(
             self, orient=tk.VERTICAL, relief='flat',
-            background=bgt,
+            background=self.bg,
             proxybackground=bg,
             proxyrelief='flat',
             sashrelief='flat'
         )
         self.pw.grid(row=1, column=0, sticky="wens")
-        self.tree = KTreeview(self, height=3)
+        self.tree = KTreeview(self, height=3, bg=self.bg)
         self.tree.estilo(self.ss, bg=bgt)
         # self.tex = MiTexto(self.pw)
         # self.tex.config(bg=bgt)
+        # self.tex = KText(self.fm2, ss=self.ss)
+        # self.tex.grid(row=1, column=0, sticky='wens')
+        # self.tex.cnf(bg=bgt)
+
         self.tex = KText(self.pw, ss=self.ss)
-        self.tex.cnf(bg=bgt)
+        # self.tex.cnf(bg=bgt)
+        self.tex.cnf(bg=self.bg, relief="flat")
         self.pw.add(self.tree)
         self.pw.add(self.tex)
         self.rowconfigure(1, weight=1)
+
+        self.fm2 = tk.Frame(self)
+        self.fm2.grid(row=2, column=0, sticky='wens', padx=4)
+        self.fm2.columnconfigure(0, weight=1)
+        self.fm2.rowconfigure(0, weight=0, minsize=18)
+        # self.fm2.rowconfigure(1, weight=1)
+        self.NEWNOMBRE = tk.StringVar()
+        self.en_newnombre = tk.Entry(self.fm2, textvariable=self.NEWNOMBRE)
+        self.en_newnombre.grid(row=0, column=0, sticky='we')
+        # self.NEWNOMBRE.set("olas sa ")
+        dnew = {
+            'relief':'flat',
+            'background':bg,
+            'foreground':fg,
+            # 'highlightbackground':bg,
+            'selectbackground':"black",
+            'highlightthickness':0,
+            'insertbackground':fg,
+            "font":("Consolas", 9, "bold")
+        }
+        self.en_newnombre.config(**dnew)
 
     def msg(self, texto, **kw):
         """texto, tag, fg, bg"""

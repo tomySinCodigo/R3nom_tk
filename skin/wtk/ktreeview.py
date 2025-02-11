@@ -28,9 +28,10 @@ class Iconos:
 
 
 class KTreeview(ttk.Treeview):
-    def __init__(self, parent, *args, **kw):
+    def __init__(self, parent, bg="pink", *args, **kw):
         super().__init__(master=parent, *args, **kw)
         self.parent = parent
+        self.bg = bg
         self._config_KTreeview()
         
     def _config_KTreeview(self):
@@ -46,7 +47,8 @@ class KTreeview(ttk.Treeview):
         s.configure(
             'k.Treeview',
             foreground=fg,
-            background=bg,
+            # background=bg,
+            background=self.bg,
             fieldbackground=bg,
             relief='flat',
             borderwidth=0,

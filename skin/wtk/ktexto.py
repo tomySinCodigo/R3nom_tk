@@ -74,6 +74,7 @@ class KText(tk.Frame):
         self.tex.grid(row=0, column=0, sticky='wens')
         # self.ss = ttk.Style()
         # self.ss.theme_use('alt')
+        self.SCROLL = False
         if self.ss:
             self.setScroll(self.ss)
 
@@ -120,12 +121,20 @@ class KText(tk.Frame):
         )
         self.scroll.grid(row=0, column=1, sticky='ns')
         self.tex.config(yscrollcommand=self.scroll.set)
+        self.SCROLL = True
 
     def error(self, texto:str):
         d = {'font':'Consolas 9 bold'}
         self.msg('!ER:', tag='errn', fg='black', bg='#FF1E4D', **d)
         self.msg(' ')
         self.msg(f"{texto}\n", tag='err_msg', fg='#FF1E4D', **d)
+
+    def toggleScroll(self):
+        if self.SCROLL:
+            self.scroll.grid_forget()
+        else:
+            self.scroll.grid(row=0, column=1, sticky='ns')
+        self.SCROLL = not self.SCROLL
 
 
 
@@ -168,7 +177,8 @@ There are many variations of passages of Lorem Ipsum available, but the majority
 """
     wg.msg(texto)
     
-    # s = ttk.Style()
-    # s.theme_use('alt')
+    s = ttk.Style()
+    s.theme_use('alt')
+    wg.setScroll(s)
 
     vn.mainloop()

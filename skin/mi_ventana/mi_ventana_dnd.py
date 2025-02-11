@@ -142,6 +142,10 @@ class MiVentana(TkinterDnD.Tk):
         self.fm.columnconfigure(0, weight=1)
         self.nbk.config(padding=0)
 
+    def setLabelCmd(self, nom:str, cmd):
+        """asigna item menu: label, comando"""
+        self.bar.item_cmd(nom, cmd)
+
     # def pag1(self, wg):
         
 
