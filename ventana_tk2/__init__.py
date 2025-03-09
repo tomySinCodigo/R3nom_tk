@@ -30,7 +30,7 @@ class VentanaTk(TkinterDnD.Tk):
         
         self.bar.fm_bts.bt_min.config(command=self.minimize)
         self.bar.fm_bts.bt_x.config(command=self.closeApp)
-        self.setMenuItemTop("ventana 1", self.ventanaSizeUno)
+        self.setMenuItemTop("ventana inicial (tam)", self.ventanaSizeUno)
 
     def _setIconTray(self, ico:str):
         # self.img_ = Image.open("tomi_cw2.png")
@@ -125,6 +125,6 @@ class VentanaTk(TkinterDnD.Tk):
         )
         threading.Thread(target=self.icon.run, daemon=True).start()
 
-
-
+    def setTitle(self, text:str):
+        self.bar.setIconMenu(text=text)
     

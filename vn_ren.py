@@ -26,6 +26,7 @@ class VentanaRen(VentanaTk):
         self.setBg('gray0') # esto ,luego de agregar el grip
         self.rowconfigure(1, weight=1)
         # self.columnconfigure(0, weight=1)
+        self.setTitle(" R3NAMER")
         self._setCommands()
 
     def _setCommands(self):
@@ -57,6 +58,12 @@ class VentanaRen(VentanaTk):
         self._recargaNombres()
         self._recargaCores()
         self._recargaPlantilla()
+        self._recargaSize()
+
+    def _recargaSize(self):
+        w = self.fun.get("w")
+        h = self.fun.get("h")
+        self.setSize(w, h)
 
     def _recargaPlantilla(self):
         p = self.fun.obtenPlantilla()
@@ -130,7 +137,7 @@ class VentanaRen(VentanaTk):
                 if new_stem and data_item.get('stem')!=new_stem: 
                     oldpath = Path(video)
                     newpath = _.with_stem(new_stem)
-                    # oldpath.rename(newpath)
+                    oldpath.rename(newpath)
                     self.fun.makeHistory(
                         textold=oldpath.name, textnew=newpath.name,
                         rutafolder=_.parent.as_posix()
@@ -151,7 +158,7 @@ class VentanaRen(VentanaTk):
 
     def muestraInfoCores(self):
         core = self.wg.cmb_cores.currentItem.lower()
-        print('core :: ', core)
+        # print('core :: ', core)
         self.wg.tex.msgNum("iNFO CORES:", 1)
         match core:
             case "mediainfo":
@@ -165,12 +172,10 @@ class VentanaRen(VentanaTk):
             case _:
                 self._doc_ffmpeg()
 
-
     def _doc_mediainfo(self):
-        # res = self.wg.tree.getItems()
         self.msgn(' MEDIAINFO\n', 3)
         self.msgn('VIDEO: ')
-        self.msgn('bitrate, duration, codec, height, width, t\n', 11)
+        self.msgn('bitrate, duracion, codec, height, width, t\n', 11)
         self.msgn('AUDIO: ')
         self.msgn('bitrate, codec\n', 11)
         self.msgn('GENERAL: ')
@@ -179,7 +184,7 @@ class VentanaRen(VentanaTk):
     def _doc_ffmpeg(self):
         self.msgn(' FFMPEG\n', 3)
         self.msgn('VIDEO: ')
-        self.msgn('bitratev, duration, codecv, height, width\n', 11)
+        self.msgn('bitratev, duracion, codecv, height, width\n', 11)
         self.msgn('AUDIO: ')
         self.msgn('bitratea, codeca\n', 11)
         self.msgn('GENERAL: ')
@@ -208,5 +213,4 @@ class VentanaRen(VentanaTk):
 
 if __name__ == '__main__':
     ventana = VentanaRen()
-    ventana.geometry('780x400')
     ventana.mainloop()

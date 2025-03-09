@@ -6,3 +6,5 @@
 "motores" = ["MediaInfo", "Mp4Info", "ExifTool", "FFmpeg"]
 "motor elegido" = 0
 "plantilla" = "[$duracion$ $bitratev$ $tags$]-$alto$p"
+"w" = 720
+"h" = 340
