@@ -3,6 +3,6 @@
 "ruta json" = "./nombres.json"
 "formato imgs" = ["jpg", "png", "gif"]
 "sep nombres" = ", "
-"motores" = ["MediaInfo", "FFmpeg", "Otros"]
+"motores" = ["MediaInfo", "Mp4Info", "ExifTool", "FFmpeg"]
 "motor elegido" = 0
-"plantilla" = "[$duracion$ $bitratev$ $modelos$]-$alto$p"
+"plantilla" = "[$duracion$ $bitratev$ $tags$]-$alto$p"
